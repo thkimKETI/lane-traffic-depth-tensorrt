@@ -26,8 +26,6 @@ All models are optimized with **TensorRT** and designed to run on **NVIDIA Jetso
 ```
 ADSW-Traffic-Perception/
 ├── ADSW_Release.py                # Main script for real-time inference
-├── assets/                        # Logos and visualization elements
-│   └── keti_logo.png
 ├── videos/                        # Sample video input
 │   └── SIHEUNG.mp4
 └── weights/                       # TensorRT engine + ONNX files
@@ -45,19 +43,7 @@ ADSW-Traffic-Perception/
 
 ---
 
-## ⚙️ Setup
-
-### ✅ 1. Install dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-> Requires: Python 3.8+, CUDA 11+, TensorRT 8+, PyTorch (for tensor handling only)
-
----
-
-### ✅ 2. Run demo
+## 🚀 Program Execution
 
 ```bash
 python ADSW_Release.py -v ./videos/SIHEUNG.mp4
@@ -74,10 +60,17 @@ You should see a display with:
 
 Each model is also provided in ONNX format and can be converted to TensorRT using `trtexec` or Python API.
 
+### 🔗 Download ONNX Models
+
+- **Lane Detection ONNX**: [Download from Google Drive](https://drive.google.com/file/d/xxxxx/view?usp=sharing)
+- **Traffic Object Detection ONNX**: [Download from Google Drive](https://drive.google.com/file/d/yyyyy/view?usp=sharing)
+- **Depth Estimation ONNX**: [Download from Google Drive](https://drive.google.com/file/d/zzzzz/view?usp=sharing)
+
 ### Example (Using trtexec):
 
 ```bash
 trtexec --onnx=weights/object/object.onnx --saveEngine=weights/object/object.engine --fp16
+
 ```
 
 ### Notes:
