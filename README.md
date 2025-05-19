@@ -109,6 +109,8 @@ Senior Researcher, Korea Electronics Technology Institute (KETI)
 
 This project is released under the MIT License. See `LICENSE` file for details.
 
+⚠️ **Important Notice**: Any use of this code—including but not limited to commercial deployment, academic research, model training, reproduction, or integration into products or services—requires the prior written consent of the original author. You are not permitted to use, distribute, or modify this software for any purpose, commercial or non-commercial, without explicit written approval. Unauthorized use will be considered a violation of the license.
+
 ---
 
 ## 🙏 Acknowledgments
