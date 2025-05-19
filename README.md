@@ -21,16 +21,6 @@ All models are optimized with **TensorRT** and designed to run on **NVIDIA Jetso
 
 ---
 
-## 🖼️ Example Output
-
-```
-Display Frame:
-├── Bottom Area: RGB frame with lane + traffic infra overlay  
-└── Top-Right Area: Depth map (Inferno colormap)
-```
-
----
-
 ## 📂 Directory Structure
 
 ```
@@ -40,19 +30,17 @@ ADSW-Traffic-Perception/
 │   └── keti_logo.png
 ├── videos/                        # Sample video input
 │   └── SIHEUNG.mp4
-├── weights/                       # TensorRT engine + ONNX files
-│   ├── object/
-│   │   ├── object.engine
-│   │   └── object.onnx
-│   ├── lane/
-│   │   ├── lane.engine
-│   │   └── lane.onnx
-│   └── depth/
-│       ├── depth.engine
-│       └── depth.onnx
-├── weights/depth/transform.py     # `load_image()` preprocessing function
-├── requirements.txt               # Dependency list
-└── README.md                      # You're reading it
+└── weights/                       # TensorRT engine + ONNX files
+    ├── object/
+    │   ├── object.engine
+    │   └── object.onnx
+    ├── lane/
+    │   ├── lane.engine
+    │   └── lane.onnx
+    └── depth/
+        ├── depth.engine
+        └── depth.onnx
+
 ```
 
 ---
