@@ -3,6 +3,15 @@
 **Real-time lane detection, traffic sign/light recognition, and monocular depth estimation using TensorRT on NVIDIA Jetson.**  
 Developed as part of the [KIAT] Embedded AI-based Full Autonomous Driving (Level 4) SW and MaaS Technology Development Project.
 
+
+---
+
+## 🖼️ Demo
+
+<div align="center">
+  <img src="./assets/demo.gif" width="600">
+</div>
+
 ---
 
 ## 🧠 Overview
