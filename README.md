@@ -86,7 +86,6 @@ trtexec --onnx=weights/object/object.onnx --saveEngine=weights/object/object.eng
 | ------------- | ------------------ | ----------- |
 | Jetson Orin   | ✅ Supported        | ~30 FPS     |
 | Jetson Xavier | ✅ Supported        | ~15–20 FPS  |
-| Jetson Nano   | ⚠️ Not Recommended | Too slow    |
 
 ---
 
