@@ -282,15 +282,7 @@ class DepthEstimator:
         self.stream = cuda.Stream()
 
     def inference(self, input_image):
-        """
-        Runs inference on the provided input image.
 
-        Args:
-            input_image (np.ndarray): Preprocessed input image.
-
-        Returns:
-            np.ndarray: Post-processed depth map as an 8-bit grayscale image.
-        """
         # Copy input image to the pagelocked memory
         input_image = load_image(input_image)
         #print(input_image)
@@ -311,14 +303,12 @@ class DepthEstimator:
         
             
 def add_logo(frame, logo, x=2, y=2):
-    """ 프레임에 로고를 추가하는 함수 """
     logo_height, logo_width = logo.shape[:2]
     overlay = np.copy(frame)
     overlay[y:y+logo_height, x:x+logo_width] = logo
     return cv2.addWeighted(overlay, 1, frame, 0, 0)
 
 def resize_with_aspect_ratio(image, target_height, inter=cv2.INTER_AREA):
-    """ 높이를 기준으로 이미지의 비율을 유지하면서 크기 조정 """
     (h, w) = image.shape[:2]
     ratio = target_height / float(h)
     dim = (int(w * ratio), target_height)
@@ -357,15 +347,12 @@ if __name__ == "__main__":
             depth = depth.astype(np.uint8)
             depth = cv2.applyColorMap(depth, cv2.COLORMAP_INFERNO)
        
-            # 디스플레이용 리사이즈
             target_height = 480
             img_disp = resize_with_aspect_ratio(img_disp, target_height)
 
-            # depth_disp를 작은 사이즈로 만들고 위치 조정
             overlay_scale = 0.33  # 예: 전체의 1/3 크기
             depth_disp = cv2.resize(depth, (int(img_disp.shape[1] * overlay_scale), int(img_disp.shape[0] * overlay_scale)))
 
-            # canvas 설정 (img_disp만 사용)
             logo_height, logo_width  = logo.shape[:2]
             canvas_height = target_height + logo_height
             canvas_width = img_disp.shape[1]
@@ -379,10 +366,8 @@ if __name__ == "__main__":
             cv2.putText(canvas, line_1, (text_x, text_y), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255,255,255), 1)
             cv2.putText(canvas, line_2, (text_x, text_y+20), cv2.FONT_HERSHEY_SIMPLEX, 0.4, (255,255,255), 1)
 
-            # 본 영상 (좌측 하단)
             canvas[logo_height:logo_height+target_height, :img_disp.shape[1]] = img_disp
 
-            # depth overlay (우측 상단)
             depth_h, depth_w = depth_disp.shape[:2]
             overlay_y = logo_height
             overlay_x = img_disp.shape[1] - depth_w - 10  # 우측 여백
