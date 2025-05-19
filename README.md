@@ -21,19 +21,65 @@ All models are optimized with **TensorRT** and designed to run on **NVIDIA Jetso
 
 ---
 
+## 🖼️ Example Output
+
+```
+Display Frame:
+├── Bottom Area: RGB frame with lane + traffic infra overlay  
+└── Top-Right Area: Depth map (Inferno colormap)
+```
+
+---
+
 ## 📂 Directory Structure
 
 ```
 ADSW-Traffic-Perception/
 ├── ADSW_Release.py                # Main script for real-time inference
+├── assets/                        # Logos and visualization elements
+│   └── keti_logo.png
 ├── videos/                        # Sample video input
-│   └── demo.mp4
-└── weights/                       # TensorRT engine files
-    ├── object/object.engine
-    ├── lane/lane.engine
-    └── depth/depth.engine
+│   └── SIHEUNG.mp4
+├── weights/                       # TensorRT engine + ONNX files
+│   ├── object/
+│   │   ├── object.engine
+│   │   └── object.onnx
+│   ├── lane/
+│   │   ├── lane.engine
+│   │   └── lane.onnx
+│   └── depth/
+│       ├── depth.engine
+│       └── depth.onnx
+├── weights/depth/transform.py     # `load_image()` preprocessing function
+├── requirements.txt               # Dependency list
+└── README.md                      # You're reading it
+```
 
 ---
+
+## ⚙️ Setup
+
+### ✅ 1. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+> Requires: Python 3.8+, CUDA 11+, TensorRT 8+, PyTorch (for tensor handling only)
+
+---
+
+### ✅ 2. Run demo
+
+```bash
+python ADSW_Release.py -v ./videos/SIHEUNG.mp4
+```
+
+You should see a display with:
+
+- **Main frame (bottom)**: Real-time overlay with lane and traffic infra detection  
+- **Depth view (top-right)**: Inferred depth using `depth.engine`
+
 ---
 
 ## 🔄 ONNX Model Conversion
@@ -53,28 +99,21 @@ trtexec --onnx=weights/object/object.onnx --saveEngine=weights/object/object.eng
 
 ---
 
-### ✅ 2. Run demo
+## 🛠️ Supported Devices
 
-```bash
-python ADSW_Release.py -v ./videos/SIHEUNG.mp4
-```
+| Jetson Device | Status             | FPS         |
+| ------------- | ------------------ | ----------- |
+| Jetson Orin   | ✅ Supported        | ~30 FPS     |
+| Jetson Xavier | ✅ Supported        | ~15–20 FPS  |
+| Jetson Nano   | ⚠️ Not Recommended | Too slow    |
 
 ---
-
-## 📦 TensorRT Engine Notes
-
-- `.engine` files are already optimized models. You must regenerate them if:
-  - You change your Jetson device (e.g., from Xavier to Orin)
-  - Your TensorRT or CUDA version differs from the training machine
-- See [TensorRT documentation](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/index.html) for converting ONNX to TensorRT.
-
---- 
 
 ## 👤 Maintainer
 
 **Taehyeon Kim**  
 Senior Researcher, Korea Electronics Technology Institute (KETI)  
-📧 taehyeon.kim@keti.re.kr
+📧 [taehyeon.kim@keti.re.kr](mailto:taehyeon.kim@keti.re.kr)
 
 ---
 
