@@ -13,9 +13,9 @@
 
 This repository provides three major perception modules for autonomous driving:
 
-- **Lane Detection**: Lightweight, anchor-based multi-lane detector  
+- **Lane Detection**: Optimized for robust detection of multiple lanes in complex road environments 
 - **Traffic Infrastructure Detection**: Real-time inference for traffic lights, signs, and road markings  
-- **Monocular Depth Estimation**: CNN-based single-image depth map inference  
+- **Monocular Depth Estimation**: High-resolution depth inference from a single RGB image
 
 All models are optimized with **TensorRT** and designed to run on **NVIDIA Jetson platforms** (Orin, Xavier, etc).
 
@@ -27,7 +27,7 @@ All models are optimized with **TensorRT** and designed to run on **NVIDIA Jetso
 ADSW-Traffic-Perception/
 ├── ADSW_Release.py                # Main script for real-time inference
 ├── videos/                        # Sample video input
-│   └── SIHEUNG.mp4
+│   └── demo.mp4
 └── weights/                       # TensorRT engine + ONNX files
     ├── object/
     │   ├── object.engine
@@ -46,7 +46,7 @@ ADSW-Traffic-Perception/
 ## 🚀 Program Execution
 
 ```bash
-python ADSW_Release.py -v ./videos/SIHEUNG.mp4
+python ADSW_Release.py -v ./videos/demo.mp4
 ```
 
 You should see a display with:
