@@ -36,17 +36,13 @@ Display Frame:
 ```
 ADSW-Traffic-Perception/
 ├── ADSW_Release.py                # Main script for real-time inference
-├── assets/                        # Logos and visualization elements
-│   └── keti_logo.png
 ├── videos/                        # Sample video input
-│   └── SIHEUNG.mp4
-├── weights/                       # TensorRT engine files
-│   ├── object/object.engine
-│   ├── lane/lane.engine
-│   └── depth/depth.engine
-├── weights/depth/transform.py     # `load_image()` preprocessing function
-├── requirements.txt               # Dependency list
-└── README.md                      # You're reading it
+│   └── demo.mp4
+└── weights/                       # TensorRT engine files
+    ├── object/object.engine
+    ├── lane/lane.engine
+    └── depth/depth.engine
+
 ```
 
 ---
