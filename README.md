@@ -33,19 +33,22 @@ ADSW-Traffic-Perception/
     ├── lane/lane.engine
     └── depth/depth.engine
 
-```
-
 ---
 
-## ⚙️ Setup
+## 🔄 ONNX Model Conversion
 
-### ✅ 1. Install dependencies
+Each model is also provided in ONNX format and can be converted to TensorRT using `trtexec` or Python API.
+
+### Example (Using trtexec):
 
 ```bash
-pip install -r requirements.txt
+trtexec --onnx=weights/object/object.onnx --saveEngine=weights/object/object.engine --fp16
 ```
 
-> Requires: Python 3.8+, CUDA 11+, TensorRT 8+, PyTorch (for tensor handling only)
+### Notes:
+
+- Ensure your Jetson environment matches the ONNX conversion environment (TensorRT, CUDA, cuDNN)
+- You can adjust input shape, workspace size, and precision as needed
 
 ---
 
