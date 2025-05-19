@@ -91,9 +91,10 @@ trtexec --onnx=weights/object/object.onnx --saveEngine=weights/object/object.eng
 
 ## 👤 Maintainer
 
-**Taehyeon Kim**  
+**Taehyeon Kim, Ph.D.**  
 Senior Researcher, Korea Electronics Technology Institute (KETI)  
-📧 [taehyeon.kim@keti.re.kr](mailto:taehyeon.kim@keti.re.kr)
+📧 [taehyeon.kim@keti.re.kr](mailto:taehyeon.kim@keti.re.kr)  
+🌐 [Homepage](https://rcard.re.kr/detail/OISRzd7ua0tW0A1zMEwbKQ/information)
 
 ---
 
