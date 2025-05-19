@@ -21,16 +21,6 @@ All models are optimized with **TensorRT** and designed to run on **NVIDIA Jetso
 
 ---
 
-## 🖼️ Example Output
-
-```
-Display Frame:
-├── Bottom Area: RGB frame with lane + traffic infra overlay  
-└── Top-Right Area: Depth map (Inferno colormap)
-```
-
----
-
 ## 📂 Directory Structure
 
 ```
@@ -65,10 +55,6 @@ pip install -r requirements.txt
 python ADSW_Release.py -v ./videos/SIHEUNG.mp4
 ```
 
-You should see a display with:
-- **Main frame (bottom)**: Real-time overlay with lane and traffic infra detection  
-- **Depth view (top-right)**: Inferred depth using `depth.engine`
-
 ---
 
 ## 📦 TensorRT Engine Notes
@@ -78,17 +64,7 @@ You should see a display with:
   - Your TensorRT or CUDA version differs from the training machine
 - See [TensorRT documentation](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/index.html) for converting ONNX to TensorRT.
 
----
-
-## 🛠️ Supported Devices
-
-| Jetson Device | Status      | FPS      |
-|---------------|-------------|----------|
-| Jetson Orin   | ✅ Supported | ~30 FPS  |
-| Jetson Xavier | ✅ Supported | ~15–20 FPS |
-| Jetson Nano   | ⚠️ Not Recommended | Too slow |
-
----
+--- 
 
 ## 👤 Maintainer
 
