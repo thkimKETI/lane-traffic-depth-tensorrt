@@ -100,3 +100,11 @@ Senior Researcher, Korea Electronics Technology Institute (KETI)
 ## 📜 License
 
 This project is released under the MIT License. See `LICENSE` file for details.
+
+---
+
+## 🙏 Acknowledgments
+
+This research was financially supported by the Ministry of Trade, Industry and Energy (MOTIE) and the Korea Institute of Advancement of Technology (KIAT) through the International Cooperative R&D Program [P0019782, Embedded AI Based Fully Autonomous Driving Software and MaaS Technology Develop
+
+
