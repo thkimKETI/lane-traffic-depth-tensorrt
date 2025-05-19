@@ -67,10 +67,17 @@ Each model is also provided in ONNX format and can be converted to TensorRT usin
 - **🌊 Depth Estimation ONNX**: [Download from Google Drive](https://drive.google.com/file/d/1LEtztIc9z2R5eZJYI84MI42Mn8GIlR1M/view?usp=drive_link)
 
 ### 🛠️ Recommended Conversion (Using trtexec):
+After downloading the ONNX models above, please place them in the following paths to match the command below:
 
 ```bash
-trtexec --onnx=weights/object/object.onnx --saveEngine=weights/object/object.engine --fp16
+# Lane Detection
+trtexec --onnx=weights/lane/lane.onnx --saveEngine=weights/lane/lane.engine --fp16
 
+# Traffic Object Detection
+trtexec --onnx=weights/object/objct.onnx --saveEngine=weights/object/object.engine --fp16
+
+# Depth Estimation
+trtexec --onnx=weights/depth/depth.onnx --saveEngine=weights/depth/depth.engine --fp16
 ```
 
 ### Notes:
