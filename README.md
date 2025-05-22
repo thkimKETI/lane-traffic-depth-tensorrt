@@ -104,7 +104,7 @@ Senior Researcher, Korea Electronics Technology Institute (KETI)
 🌐 [Homepage](https://rcard.re.kr/detail/OISRzd7ua0tW0A1zMEwbKQ/information)
 
 **Hyeri Yu**  
-Graduate Student, Yonsei University
+Graduate Student, Yonsei University  
 📧 [dbgpfl1206@gmail.com](mailto:dbgpfl1206@gmail.com) 
 
 ---
