@@ -1,3 +1,4 @@
+
 # 🚘 Lane, Traffic Object, and Depth Estimation on Jetson with TensorRT
 
 **Real-time lane detection, traffic sign/light recognition, and monocular depth estimation using TensorRT on NVIDIA Jetson.**  
@@ -38,7 +39,6 @@ ADSW-Traffic-Perception/
     └── depth/
         ├── depth.engine
         └── depth.onnx
-
 ```
 
 ---
@@ -67,6 +67,7 @@ Each model is also provided in ONNX format and can be converted to TensorRT usin
 - **🌊 Depth Estimation ONNX**: [Download from Google Drive](https://drive.google.com/file/d/1LEtztIc9z2R5eZJYI84MI42Mn8GIlR1M/view?usp=drive_link)
 
 ### 🛠️ Recommended Conversion (Using trtexec):
+
 After downloading the ONNX models above, please place them in the following paths to match the command below:
 
 ```bash
@@ -84,6 +85,33 @@ trtexec --onnx=weights/depth/depth.onnx --saveEngine=weights/depth/depth.engine 
 
 - Ensure your Jetson environment matches the ONNX conversion environment (TensorRT, CUDA, cuDNN)
 - You can adjust input shape, workspace size, and precision as needed
+
+---
+
+## 🧠 Additional Tip for TensorRT Conversion: LayerNorm Compatibility
+
+TensorRT does **not natively support `LayerNorm`** in many cases. If your ONNX model includes `nn.LayerNorm` layers, you may encounter conversion or inference errors.
+
+To address this issue, we provide a general-purpose script that replaces `LayerNorm` with a TensorRT-friendly `FakeLayerNorm`.
+
+### 🔧 LayerNorm Replacement + ONNX Export
+
+You can use the following script to:
+
+- Load any `.pth` model
+- Automatically replace all `nn.LayerNorm` layers
+- Export to ONNX format
+- Optionally simplify the ONNX model
+
+📄 **Script**: [`convert_to_onnx.py`](./convert_to_onnx.py)
+
+```bash
+python convert_to_onnx.py   --model-path checkpoints/your_model.pth   --model-class models.your_model.YourModel   --input-size 1 3 224 224   --output exported_model.onnx
+```
+
+> 💡 `--model-class` must be in the format `module.ClassName` (e.g., `models.my_model.MyModel`)
+
+The script automatically replaces all `LayerNorm` layers with `FakeLayerNorm` to ensure TensorRT compatibility.
 
 ---
 
@@ -120,6 +148,4 @@ Use of this code—commercial or non-commercial, including academic research, mo
 
 ## 🙏 Acknowledgments
 
-This research was financially supported by the Ministry of Trade, Industry and Energy (MOTIE) and the Korea Institute of Advancement of Technology (KIAT) through the International Cooperative R&D Program [P0019782, Embedded AI Based Fully Autonomous Driving Software and MaaS Technology Develop
-
-
+This research was financially supported by the Ministry of Trade, Industry and Energy (MOTIE) and the Korea Institute of Advancement of Technology (KIAT) through the International Cooperative R&D Program [P0019782, Embedded AI Based Fully Autonomous Driving Software and MaaS Technology Development].
