@@ -1,8 +1,10 @@
 
 # 🚘 Lane, Traffic Object, and Depth Estimation on Jetson with TensorRT
 
-**Real-time lane detection, traffic sign/light recognition, and monocular depth estimation using TensorRT on NVIDIA Jetson.**  
-Optimized for real-world Korean road environments.
+**Real-time lane detection, traffic sign/light recognition, and monocular depth estimation using TensorRT on NVIDIA Jetson.**
+
+> 🇰🇷 Optimized for real-world **Korean road environments**
+
 
 <div align="center">
   <img src="./assets/demo.gif" width="600">
