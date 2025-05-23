@@ -77,7 +77,7 @@ After downloading the ONNX models above, please place them in the following path
 trtexec --onnx=weights/lane/lane.onnx --saveEngine=weights/lane/lane.engine --fp16
 
 # Traffic Object Detection
-trtexec --onnx=weights/object/objct.onnx --saveEngine=weights/object/object.engine --fp16
+trtexec --onnx=weights/object/object.onnx --saveEngine=weights/object/object.engine --fp16
 
 # Depth Estimation
 trtexec --onnx=weights/depth/depth.onnx --saveEngine=weights/depth/depth.engine --fp16
