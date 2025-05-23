@@ -115,12 +115,16 @@ The script automatically replaces all `LayerNorm` layers with `FakeLayerNorm` to
 
 ---
 
-## 🛠️ Supported Devices
+## 🛠️ Supported Devices & Environment
 
-| Jetson Device | Status             | FPS         |
-| ------------- | ------------------ | ----------- |
-| Jetson Orin   | ✅ Supported        | ~30 FPS     |
-| Jetson Xavier | ✅ Supported        | ~15–20 FPS  |
+| Jetson Device | Status      | FPS        | JetPack | CUDA   | TensorRT |
+| ------------- | ----------- | ---------- | ------- | ------ | -------- |
+| Jetson Orin   | ✅ Supported | ~30 FPS    | 5.1.2   | 11.4   | 8.5.2    |
+| Jetson Xavier | ✅ Supported | ~15–20 FPS | 4.6.1   | 10.2   | 8.2.1    |
+
+> ✅ **Note**:
+> - You must convert ONNX models using the same JetPack version to ensure TensorRT compatibility.
+> - All conversions in this repo were tested directly on-device using `trtexec`.
 
 ---
 
