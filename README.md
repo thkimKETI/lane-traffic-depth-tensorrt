@@ -130,7 +130,7 @@ The script automatically replaces all `LayerNorm` layers with `FakeLayerNorm` to
 
 ---
 
-## 👤 Maintainer
+## 👤 Maintainers
 
 **Taehyeon Kim, Ph.D.**  
 Senior Researcher, Korea Electronics Technology Institute (KETI)  
